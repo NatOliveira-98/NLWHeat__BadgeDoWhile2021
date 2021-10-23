@@ -1,0 +1,281 @@
+/* 
+====
+  RESET_GRP
+====
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* 
+====
+  VARIABLES_GRP
+====
+*/
+:root {
+  /* colours */
+  --blackColour: #121214;
+  --grayColour-1: #e1e1e6;
+  --grayColour-2: #c4c4cc;
+  --grayColour-3: #323238;
+  --grayColour-4: #202024;
+
+  /* transition */
+  --transition: all 0.3s ease;
+}
+
+/* 
+====
+  BASE_GRP
+====
+*/
+html,
+body {
+  background: var(--blackColour);
+  height: 100%;
+
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  display: grid;
+  place-items: center;
+}
+
+/* 
+====
+  LAYOUT_GRP
+====
+*/
+/* card strap */
+.strap {
+  display: none;
+}
+
+.card-hole {
+  display: none;
+}
+
+/* badge */
+main {
+  background: url(./assets/images/background_mobile.png) no-repeat center/cover;
+
+  /* width: 375px; */
+  /* height: 812px; */
+
+  width: 100vw;
+  min-height: 812px;
+  height: 100vh;
+
+  position: relative;
+}
+
+main::before,
+main::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--grayColour-3);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+
+  -webkit-transform: scale(0.9) translate(0, 0);
+  transform: scale(0.9) translate(0, 0);
+
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+main:hover::before {
+  z-index: -1;
+
+  -webkit-transform: scale(0.96) translate(0, 1.1rem);
+  transform: scale(0.96) translate(0, 1.1rem);
+}
+
+main:hover::after {
+  background-color: var(--grayColour-4);
+  z-index: -2;
+
+  -webkit-transform: scale(0.92) translate(0, 2.2rem);
+  transform: scale(0.92) translate(0, 2.2rem);
+}
+
+.container {
+  max-width: 265px;
+  margin: 10.5rem auto;
+  text-align: center;
+}
+
+/* photo */
+.ID-photo {
+  width: 10rem;
+  margin: 11.5rem auto 0;
+  position: relative;
+}
+
+.ID-photo span {
+  position: absolute;
+  top: -15px;
+  z-index: 1;
+}
+
+.ID-photo > img {
+  width: 10rem;
+  height: 11.5rem;
+  object-fit: cover;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+/* text info */
+.info h2 {
+  color: var(--grayColour-1);
+  font-size: 1.5rem;
+  font-weight: 700;
+
+  margin-top: 1.5rem;
+}
+
+.info a {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--grayColour-2);
+  margin-top: 0.25rem;
+
+  position: relative;
+
+  transition: var(--transition);
+}
+
+.info a:hover {
+  transform: scale(1.1) translate(0, -0.1rem);
+}
+
+.info p {
+  color: var(--grayColour-2);
+  margin-top: 0.25rem;
+
+  transition: var(--transition);
+}
+
+.about {
+  color: var(--grayColour-1);
+  margin-top: 2rem;
+
+  line-height: 1.5rem;
+}
+
+/* social media */
+.social-media ul {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+
+  margin-top: 4rem;
+}
+
+.social-media ul li {
+  position: relative;
+
+  transition: all 0.3s ease;
+}
+
+.social-media ul li:hover {
+  transform: scale(1.1) translate(0, -0.5rem);
+}
+
+/* 
+====
+  RESPONSIVE_LAYOUT_GRP
+====
+*/
+/* tablets: 768px > */
+@media (min-width: 768px) {
+  /* LAYOUT */
+  body {
+    background: url(./assets/images/background_desktop.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  /* card strap */
+  .strap {
+    display: grid;
+    place-items: center;
+  }
+
+  .strap-gradient {
+    display: block;
+    background-image: url(./assets/images/strap.png);
+    width: 4rem;
+    height: 9.88rem;
+
+    position: absolute;
+    top: 0;
+    z-index: 2;
+  }
+
+  .card-hole {
+    display: block;
+    background: var(--blackColour);
+    width: 5rem;
+    height: 0.5rem;
+
+    position: absolute;
+    top: 9.75rem;
+    z-index: 1;
+  }
+
+  /* badge */
+  main {
+    background-color: var(--grayColour-4);
+    background-image: url(./assets/images/background_desktop_mask.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    width: 358px;
+    min-height: 540px;
+    height: 50vh;
+
+    position: absolute;
+    top: 8.75rem;
+  }
+
+  .container {
+    margin: 0 auto;
+  }
+
+  /* photo */
+  .ID-photo {
+    width: 10rem;
+    margin: 4.5rem auto 0;
+    position: relative;
+  }
+
+  /* social media */
+  .social-media ul {
+    margin-top: 2.5rem;
+  }
+}
